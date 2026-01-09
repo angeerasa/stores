@@ -11,5 +11,5 @@ engine = create_engine(
 SessionLocal = sessionmaker(
     autocommit=False,
     autoflush=False,
-    bing=engine
+    bind=engine
 )
