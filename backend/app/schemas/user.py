@@ -1,4 +1,4 @@
-from typing import Annotated
+from typing import Annotated, Dict
 
 from pydantic import BaseModel, constr, AfterValidator
 
@@ -14,6 +14,12 @@ class Phone(BaseModel):
 class PhoneOtp(BaseModel):
     mobile: Annotated[str, AfterValidator(phone_validation)]
     otp: str #validate
+    is_new_user: bool
 
 class OTPResponse(BaseModel):
     pass
+
+class ResponseSchema(BaseModel):
+    data: Dict
+    status: int
+    message: str
